@@ -22,7 +22,7 @@ PasswordInput.propTypes = {
   placeHolder: PropTypes.string,
   onChangeFn: PropTypes.func,
   style: PropTypes.object,
-  bottomMessage: PropTypes.oneOf([PropTypes.string, PropTypes.node]),
+  bottomMessage: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 };
 
 export default PasswordInput;
