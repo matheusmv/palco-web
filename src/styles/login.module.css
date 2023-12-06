@@ -46,8 +46,6 @@
     
 }
 
-
-
 .background {
     position: absolute;
     top: 0;
@@ -93,7 +91,14 @@
 
 }
 
-
 .cor {
     color: #7133F5;
+}
+
+.instrucao {
+    font-size: 12px;
+    color: #bfbfbf;
+    text-align: left;
+    width: 400px;
+    margin-top: -20px;
 }

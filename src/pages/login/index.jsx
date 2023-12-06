@@ -69,12 +69,12 @@ export default function Login() {
                     {error && <span className="text-red-400 text-lg text-center block mt-2">{error}</span>}
                     <div>
                         <button className={styles.btn} type="submit">
-                            Entrar
+                            ENTRAR
                         </button>
                     </div>
                     <div>
                         <p>Não possui uma conta?<span className={styles.cor}>
-                            <Link href='/'> Crie uma</Link></span></p>
+                            <Link href='/criarConta'> Crie uma</Link></span></p>
                     </div>
                 </div>
                 <Footer />
