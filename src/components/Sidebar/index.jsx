@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import Divider from '../Divider';
+import HDivider from '../Divider/HDivider';
 
 import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -19,7 +19,7 @@ function Sidebar() {
       <div className={`Sidebar-header ${isOpen ? `Sidebar-header-open` : `Sidebar-header-closed`}`}>
         {getSidebarHeaderContent(isOpen, toggleSidebarState)}
       </div>
-      <Divider />
+      <HDivider />
       <div className="Sidebar-body"></div>
     </div>
   );

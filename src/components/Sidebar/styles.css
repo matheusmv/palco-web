@@ -40,6 +40,11 @@
   z-index: 1;
 }
 
+.Sidebar-menu-icon:hover {
+  cursor: pointer;
+  background-color: var(--clr-purple-light);
+}
+
 .Sidebar-close-icon {
   position: absolute;
   min-width: 32px;
@@ -53,6 +58,15 @@
   border-radius: 100%;
   background-color: var(--clr-purple-light);
   z-index: 1;
+}
+
+.Sidebar-close-icon:hover {
+  cursor: pointer;
+  min-width: 42px;
+  min-height: 42px;
+
+  right: calc(-40px / 2);
+  top: calc(80px / 2);
 }
 
 .Sidebar-body {
