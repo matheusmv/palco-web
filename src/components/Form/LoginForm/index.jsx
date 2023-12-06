@@ -15,13 +15,7 @@ function LoginForm() {
         <PasswordInput
           className="LoginFormInput"
           placeHolder={'Senha'}
-          bottomMessage={
-            <LinkText
-              className="LoginFormPasswordRecoveryLink"
-              content={'Esqueceu a senha?'}
-              style={{ color: 'var(--clr-blue)' }}
-            />
-          }
+          bottomMessage={<LinkText className="LoginFormPasswordRecoveryLink" content={'Esqueceu a senha?'} />}
         />
       </form>
       <div className="LoginFormSubmitButtonContainer">

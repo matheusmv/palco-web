@@ -1,14 +1,14 @@
-.LoginFormContainer,
-.LoginFormTitle,
-.LoginForm,
-.LoginFormSubmitButtonContainer,
-.LoginFormBottomMessage {
+.SignUpFormContainer,
+.SignUpFormTitle,
+.SignUpForm,
+.SignUpFormSubmitButtonContainer,
+.SignUpFormBottomMessage {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.LoginFormContainer {
+.SignUpFormContainer {
   width: 100%;
   max-width: 760px;
   height: 720px;
@@ -18,14 +18,14 @@
   flex-direction: column;
 }
 
-.LoginFormTitle {
+.SignUpFormTitle {
   width: 100%;
 
   font-size: 28px;
   font-weight: bold;
 }
 
-.LoginForm {
+.SignUpForm {
   width: 100%;
   height: 235px;
 
@@ -34,24 +34,24 @@
   flex-direction: column;
 }
 
-.LoginForm,
-.LoginFormInput {
+.SignUpForm,
+.SignUpFormInput {
   background-color: var(--clr-gray-100);
 }
 
-.LoginFormPasswordRecoveryLink {
+.SignUpFormPasswordAllert {
   font-size: 12.5px;
-  color: var(--clr-blue);
+  color: var(--clr-gray-400);
 }
 
-.LoginFormSubmitButtonContainer {
+.SignUpFormSubmitButtonContainer {
   width: 100%;
   height: 40px;
 
   margin: 10px 0 10px 0;
 }
 
-.LoginFormBottomMessage {
+.SignUpFormBottomMessage {
   width: 100%;
   height: 18px;
 
@@ -70,7 +70,7 @@
 }
 
 @media screen and (max-width: 375px) {
-  .LoginFormContainer {
+  .SignUpFormContainer {
     width: 100%;
     height: 530px;
 
@@ -80,20 +80,20 @@
     justify-content: flex-start;
   }
 
-  .LoginFormTitle {
+  .SignUpFormTitle {
     font-size: 24px;
   }
 
-  .LoginForm {
+  .SignUpForm {
     height: 195px;
   }
 
-  .LoginFormInput,
-  .LoginFormPasswordRecoveryLink {
+  .SignUpFormInput,
+  .SignUpFormPasswordAllert {
     font-size: 13px;
   }
 
-  .LoginFormSubmitButtonContainer {
+  .SignUpFormSubmitButtonContainer {
     margin: 0;
   }
 
