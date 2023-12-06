@@ -1,24 +1,18 @@
 import PropTypes from 'prop-types';
-import { theme } from '../../styles/theme';
 
-function Container({ children }) {
-  return <div style={styles.container}>{children}</div>;
+import './styles.css';
+
+function Container({ children, style }) {
+  return (
+    <div className="Container" style={style}>
+      {children}
+    </div>
+  );
 }
 
 Container.propTypes = {
   children: PropTypes.node,
-};
-
-const styles = {
-  container: {
-    flex: 1,
-    height: '100vh',
-    width: '100vw',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    backgroundColor: theme.colors.background.primary,
-  },
+  style: PropTypes.object,
 };
 
 export default Container;
