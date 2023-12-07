@@ -32,3 +32,42 @@ export async function checkToken() {
     return res.data;
   });
 }
+
+export async function registerEvent({
+  name,
+  date,
+  description,
+  category,
+  local: { cep, state, city, neighborhood, street, number, complement },
+}) {
+  const token = await getItemStorage(AUTHORIZATION_KEY);
+  if (!token) {
+    return null;
+  }
+
+  const eventDetails = {
+    name: name,
+    date: date,
+    description: description,
+    category: category,
+    local: {
+      cep: cep,
+      state: state,
+      city: city,
+      neighborhood: neighborhood,
+      street: street,
+      number: number,
+      complement: complement,
+    },
+  };
+
+  return api
+    .post('/api/v1/events', { ...eventDetails }, { headers: { Authorization: `Bearer ${token}` } })
+    .then((res) => {
+      if (!res.data) {
+        return null;
+      }
+
+      return res.data;
+    });
+}

@@ -8,9 +8,17 @@ import CustomButton from '../../Button/CustomButton';
 
 import './styles.css';
 import NormalText from '../../Text/NormalText';
+import EventRegistrationForm from '../../Form/EventRegistrationForm';
+import { useState } from 'react';
 
 function PageTitle({ title }) {
   const { admin } = useSelector((state) => state.userReducer);
+
+  const [formOpen, setFormOpen] = useState(false);
+
+  const toggleFormState = () => {
+    setFormOpen((s) => !s);
+  };
 
   return (
     <div className="PageTitleContainer">
@@ -23,8 +31,10 @@ function PageTitle({ title }) {
               <AddIcon fontSize="small" /> <NormalText content={'Novo Evento'} style={{ color: 'var(--clr-white)' }} />
             </>
           }
+          onClickFn={() => toggleFormState()}
         />
       )}
+      {formOpen && <EventRegistrationForm onCloseFn={() => toggleFormState()} />}
     </div>
   );
 }

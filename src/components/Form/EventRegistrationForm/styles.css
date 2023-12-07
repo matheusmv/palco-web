@@ -1,0 +1,162 @@
+.EventRegistrationFormContainer,
+.EventRegistrationFormContainer-event,
+.EventRegistrationFormContainer-location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.EventRegistrationFormContainer {
+  width: 800px;
+  height: 500px;
+
+  position: absolute;
+
+  top: calc(50% - 250px);
+  right: calc(50% - 400px);
+
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.32);
+
+  z-index: 2;
+}
+
+.EventRegistrationFormContainer-event,
+.EventRegistrationFormContainer-location {
+  width: 50%;
+  height: 100%;
+
+  padding: 40px;
+
+  flex-direction: column;
+}
+
+.EventRegistrationFormTitle-event,
+.EventRegistrationFormTitle-location {
+  width: 100%;
+
+  padding: 5px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  font-size: 24px;
+}
+
+.EventRegistrationFormTitle-event {
+  color: var(--clr-purple-medium);
+}
+
+.EventRegistrationFormTitle-location {
+  justify-content: space-between;
+
+  color: var(--clr-white);
+}
+
+.EventRegistrationForm-close-icon {
+  position: absolute;
+
+  min-width: 40px;
+  min-height: 40px;
+
+  padding: 5px;
+
+  top: calc(50% - 260px);
+  right: calc(50% - 410px);
+
+  border-radius: 100%;
+
+  background-color: var(--clr-purple-dark);
+
+  cursor: pointer;
+}
+
+.EventRegistrationForm-close-icon:hover {
+  min-width: 50px;
+  min-height: 50px;
+}
+
+.EventRegistrationFormContainer-event {
+  background-color: var(--clr-white);
+}
+
+.EventRegistrationFormContainer-location {
+  background-color: var(--clr-purple-medium);
+
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.EventRegistrationFormGroupInRow,
+.EventRegistrationFormGroupInColumn {
+  width: 100%;
+  height: fit-content;
+
+  gap: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.EventRegistrationFormGroupInColumn {
+  width: 100%;
+  height: fit-content;
+
+  margin-top: 5px;
+
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.EventRegistrationFormContainer-event-form,
+.EventRegistrationFormContainer-location-form {
+  width: 100%;
+  height: 100%;
+
+  padding: 20px 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.EventRegistrationFormContainer-location-form {
+  justify-content: flex-start;
+}
+
+.EventRegistrationFormInput {
+  font-size: 14px;
+  background-color: transparent;
+}
+
+.LocationInput {
+  color: var(--clr-white);
+}
+
+.LocationInput::placeholder {
+  color: var(--clr-white);
+}
+
+.LocationInput:focus {
+  border-bottom: 2px solid var(--clr-white);
+}
+
+.EventRegistrationFormSubmitButton {
+  width: 160px;
+
+  padding-left: 0;
+  padding-right: 0;
+
+
+  align-self: flex-start;
+
+  color: var(--clr-purple-medium);
+
+  background-color: var(--clr-white);
+}
+
+.EventRegistrationFormSubmitButton:hover {
+  color: var(--clr-white);
+}
