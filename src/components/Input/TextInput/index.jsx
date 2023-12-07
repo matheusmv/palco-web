@@ -2,11 +2,12 @@ import PropTypes from 'prop-types';
 
 import './styles.css';
 
-function TextInput({ className, placeHolder, onChangeFn, onKeyDownFn, style, bottomMessage = undefined }) {
+function TextInput({ className, value, placeHolder, onChangeFn, onKeyDownFn, style, bottomMessage = undefined }) {
   return (
     <div className="TextInputContainer" style={style}>
       <input
         className={`TextInput ${className}`}
+        value={value}
         placeholder={placeHolder}
         onChange={onChangeFn}
         onKeyDown={onKeyDownFn}
@@ -20,6 +21,7 @@ function TextInput({ className, placeHolder, onChangeFn, onKeyDownFn, style, bot
 
 TextInput.propTypes = {
   className: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),
   placeHolder: PropTypes.string,
   onChangeFn: PropTypes.func,
   onKeyDownFn: PropTypes.func,

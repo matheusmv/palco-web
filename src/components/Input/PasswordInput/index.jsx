@@ -2,11 +2,12 @@ import PropTypes from 'prop-types';
 
 import './styles.css';
 
-function PasswordInput({ className, placeHolder, onChangeFn, style, bottomMessage = undefined }) {
+function PasswordInput({ className, value, placeHolder, onChangeFn, style, bottomMessage = undefined }) {
   return (
     <div className="PasswordInputContainer" style={style}>
       <input
         className={`PasswordInput ${className}`}
+        value={value}
         placeholder={placeHolder || '•••••'}
         onChange={onChangeFn}
         style={style}
@@ -19,6 +20,7 @@ function PasswordInput({ className, placeHolder, onChangeFn, style, bottomMessag
 
 PasswordInput.propTypes = {
   className: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),
   placeHolder: PropTypes.string,
   onChangeFn: PropTypes.func,
   style: PropTypes.object,

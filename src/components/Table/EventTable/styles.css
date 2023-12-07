@@ -1,0 +1,198 @@
+.EventTableContainer {
+  width: 100%;
+  height: 100%;
+
+  margin: 10px;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  background-color: var(--clr-white);
+}
+
+.EventTable {
+  width: 100%;
+}
+
+.EventTableHeaderContainer {
+  width: 100%;
+  height: 50px;
+
+  padding: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--clr-white);
+}
+
+.EventTableHeader {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.EventTableHeaderTr {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.EventTableHeaderThName,
+.EventTableHeaderThDescription,
+.EventTableHeaderThLocation,
+.EventTableHeaderThCategory,
+.EventTableHeaderThDate {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.EventTableHeaderThName {
+  width: 340px;
+}
+
+.EventTableHeaderThDescription {
+  width: 390px;
+}
+
+.EventTableHeaderThLocation,
+.EventTableHeaderThCategory,
+.EventTableHeaderThDate {
+  width: 190px;
+}
+
+.EventTableHeaderThText {
+  font-size: 16px;
+}
+
+
+.EventTableBodyContainer {
+  width: 100%;
+  height: fit-content;
+  min-height: 500px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--clr-white);
+}
+
+.EventTableBody {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.EventTableBodyRowContainer {
+  width: 100%;
+  height: 84px;
+
+  padding: 27px 10px 27px 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+}
+
+.EventTableBodyRowContainer:hover {
+  background-color: var(--clr-background-secondary);
+  border-top: 2px solid var(--clr-purple-medium);
+  border-bottom: 2px solid var(--clr-purple-medium);
+}
+
+.EventTableBodyRow {
+  width: 100%;
+  height: fit-content;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.EventTableBodyRowTdContainer {
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+.EventTableBodyRowTdName,
+.EventTableBodyRowTdDescription,
+.EventTableBodyRowTdLocation,
+.EventTableBodyRowTdCategory,
+.EventTableBodyRowTdDate {
+  height: 100%;
+
+  padding: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.EventTableBodyRowTdName,
+.EventTableBodyRowTdDescription {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.EventTableBodyRowTdName {
+  width: 340px;
+
+  white-space: nowrap;
+}
+
+.EventTableBodyRowTdDescription {
+  width: 390px;
+  height: 50px;
+}
+
+.EventTableBodyRowTdLocation,
+.EventTableBodyRowTdCategory,
+.EventTableBodyRowTdDate {
+  width: 190px;
+}
+
+
+.EventTablePaginationContainer {
+  width: 100%;
+  height: 52px;
+
+  padding: 10px 200px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.EventTablePagination {
+  width: 100%;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: 1px solid black;
+}

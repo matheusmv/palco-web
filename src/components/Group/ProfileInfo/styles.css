@@ -7,7 +7,7 @@
 }
 
 .ProfileInfoContainer {
-  width: 160px;
+  min-width: 160px;
   height: 60px;
 
   padding: 10px;
@@ -36,7 +36,7 @@
 }
 
 .ProfileInfo-details {
-  width: 95px;
+  min-width: 95px;
   height: 40px;
 
   margin-left: 5px;
