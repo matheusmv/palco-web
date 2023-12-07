@@ -5,15 +5,23 @@ import DefaultSpinner from '../../Spinner/DefaultSpinner';
 
 import './styles.css';
 import HDivider from '../../Divider/HDivider';
+import CustomButton from '../../Button/CustomButton';
+import { useState } from 'react';
 
 function EventTable() {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
     <div className="EventTableContainer">
       <div className="EventTable">
         <EventTableHeader />
         <EventTableBody />
       </div>
-      <EventTablePagination currentPage={1} totalItems={6} totalPages={17} onPageChange={(p) => console.log(p)} />
+      <EventTablePagination currentPage={currentPage} totalItems={6} totalPages={17} onPageChange={handlePageChange} />
     </div>
   );
 }
@@ -167,33 +175,30 @@ function EventTablePagination({ currentPage, totalItems, totalPages, onPageChang
   return (
     <div className="EventTablePaginationContainer">
       <ul className="EventTablePagination">
-        <button
-          className="EventTablePaginationButton"
+        <CustomButton
+          className="EventTablePaginationButton PrevButton"
+          text="Anterior"
           onClick={() => onPageChange(currentPage - 1)}
-          disabled={currentPage === 0}
-        >
-          Anterior
-        </button>
+          disabled={currentPage === 1}
+        />
         <div className="EventTablePaginationButtonContainer">
           {pages.map((page) => (
-            <button
+            <CustomButton
               key={page}
               className={`EventTablePaginationButton ${
                 page === currentPage ? 'EventTablePaginationButton-active' : ''
               }`}
-              onClick={() => onPageChange(page - 1)}
-            >
-              {page}
-            </button>
+              text={page}
+              onClickFn={() => onPageChange(page)}
+            />
           ))}
         </div>
-        <button
-          className="EventTablePaginationButton"
+        <CustomButton
+          className="EventTablePaginationButton NextButton"
+          text="Próximo"
           onClick={() => onPageChange(currentPage + 1)}
-          disabled={currentPage === totalPages - 1}
-        >
-          Próximo
-        </button>
+          disabled={currentPage === totalPages}
+        />
       </ul>
     </div>
   );
