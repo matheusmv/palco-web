@@ -4,7 +4,7 @@ import './styles.css';
 
 function PasswordInput({ className, placeHolder, onChangeFn, style, bottomMessage = undefined }) {
   return (
-    <div className="PasswordInputContainer">
+    <div className="PasswordInputContainer" style={style}>
       <input
         className={`PasswordInput ${className}`}
         placeholder={placeHolder || '•••••'}
