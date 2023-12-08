@@ -1,9 +1,12 @@
 import { Provider } from 'react-redux';
-import store from './store';
 import { BrowserRouter } from 'react-router-dom';
-import AppRoutes from './routes';
-import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+
+import AppRoutes from './routes';
+import store from './store';
+
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-datepicker/dist/react-datepicker.css';
 
 function App() {
   return (

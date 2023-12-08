@@ -12,9 +12,9 @@ import LinkText from '../../Text/LinkText';
 import './styles.css';
 
 function SignUpForm() {
-  const navigate = useNavigate();
+  const { userDetails, handleEmailChange, handlePasswordChange, executeSignUp } = useSignUp();
 
-  const { email, password, handleEmailChange, handlePasswordChange, executeSignUp } = useSignUp();
+  const navigate = useNavigate();
 
   const submitHandler = async () => {
     executeSignUp(() => {
@@ -27,10 +27,15 @@ function SignUpForm() {
     <div className="SignUpFormContainer">
       <h2 className="SignUpFormTitle">Criar Conta</h2>
       <form className="SignUpForm">
-        <TextInput className="SignUpFormInput" value={email} placeHolder={'E-mail'} onChangeFn={handleEmailChange} />
+        <TextInput
+          className="SignUpFormInput"
+          value={userDetails.email}
+          placeHolder={'E-mail'}
+          onChangeFn={handleEmailChange}
+        />
         <PasswordInput
           className="SignUpFormInput"
-          value={password}
+          value={userDetails.password}
           placeHolder={'Senha'}
           onChangeFn={handlePasswordChange}
           bottomMessage={

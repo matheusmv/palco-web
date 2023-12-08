@@ -1,27 +1,32 @@
 import { useState } from 'react';
-import { authenticateUser } from '../../services/event-manager/api';
-import { setItemStorage } from '../../utils/auth/storage.proxy';
-import { AUTHORIZATION_KEY } from '../../utils/auth/storage.constants';
 import { useDispatch } from 'react-redux';
-import { authUser } from '../../store/user/reducer';
 import { toast } from 'react-toastify';
+
+import { authUser } from '../../store/user/reducer';
+
+import { AUTHORIZATION_KEY } from '../../utils/auth/storage.constants';
+import { setItemStorage } from '../../utils/auth/storage.proxy';
+
+import { authenticateUser } from '../../services/event-manager/api';
 
 export function useLogin() {
   const dispatch = useDispatch();
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [authDetails, setAuthDetails] = useState({
+    email: '',
+    password: '',
+  });
 
   const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+    setAuthDetails((state) => ({ ...state, email: e.target.value }));
   };
 
   const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
+    setAuthDetails((state) => ({ ...state, password: e.target.value }));
   };
 
   const executeAuthentication = async (onSuccessFn, onErrorFn) => {
-    await authenticateUser(email, password)
+    await authenticateUser(authDetails)
       .then(async (res) => {
         setItemStorage(AUTHORIZATION_KEY, res.accessToken || '');
 
@@ -46,5 +51,5 @@ export function useLogin() {
       });
   };
 
-  return { email, password, handleEmailChange, handlePasswordChange, executeAuthentication };
+  return { authDetails, handleEmailChange, handlePasswordChange, executeAuthentication };
 }

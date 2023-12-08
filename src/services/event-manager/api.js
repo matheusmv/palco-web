@@ -1,6 +1,8 @@
 import axios from 'axios';
-import { getItemStorage, removeItemStorage } from '../../utils/auth/storage.proxy';
+
 import { AUTHORIZATION_KEY } from '../../utils/auth/storage.constants';
+
+import { getItemStorage, removeItemStorage } from '../../utils/auth/storage.proxy';
 
 const api = axios.create({
   baseURL: 'http://localhost:3000',
@@ -9,11 +11,11 @@ const api = axios.create({
   },
 });
 
-export async function authenticateUser(email, password) {
+export async function authenticateUser({ email, password }) {
   return api.post('/login', { email, password }).then((res) => res.data);
 }
 
-export async function registerUser(email, password) {
+export async function registerUser({ email, password }) {
   return api.post('/api/v1/users', { email, password }).then((res) => res.data);
 }
 
@@ -38,31 +40,39 @@ export async function registerEvent({
   date,
   description,
   category,
-  local: { cep, state, city, neighborhood, street, number, complement },
+  cep,
+  state,
+  city,
+  neighborhood,
+  street,
+  number,
+  complement,
 }) {
   const token = await getItemStorage(AUTHORIZATION_KEY);
   if (!token) {
     return null;
   }
 
-  const eventDetails = {
-    name: name,
-    date: date,
-    description: description,
-    category: category,
-    local: {
-      cep: cep,
-      state: state,
-      city: city,
-      neighborhood: neighborhood,
-      street: street,
-      number: number,
-      complement: complement,
-    },
-  };
-
   return api
-    .post('/api/v1/events', { ...eventDetails }, { headers: { Authorization: `Bearer ${token}` } })
+    .post(
+      '/api/v1/events',
+      {
+        name,
+        date,
+        description,
+        category,
+        local: {
+          cep,
+          state,
+          city,
+          neighborhood,
+          street,
+          number,
+          complement,
+        },
+      },
+      { headers: { Authorization: `Bearer ${token}` } },
+    )
     .then((res) => {
       if (!res.data) {
         return null;
@@ -70,4 +80,19 @@ export async function registerEvent({
 
       return res.data;
     });
+}
+
+export async function getEventById(eventId) {
+  const token = await getItemStorage(AUTHORIZATION_KEY);
+  if (!token) {
+    return null;
+  }
+
+  return api.get(`/api/v1/events/${eventId}`, { headers: { Authorization: `Bearer ${token}` } }).then((res) => {
+    if (!res.data) {
+      return null;
+    }
+
+    return res.data;
+  });
 }
