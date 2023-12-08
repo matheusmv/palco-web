@@ -1,9 +1,11 @@
 .EventCardDetailsContainer {
+  position: absolute;
+
+  top: calc(100vh / 5);
+
   min-width: 340px;
   max-width: 730px;
   height: fit-content;
-
-  position: absolute;
 
   display: flex;
   flex-direction: column;
@@ -12,7 +14,7 @@
 
   box-shadow: 0px 2px 8px rgba(0,0,0,0.32);
 
-  transition: all 1s ease-in-out;
+  transition: all .3s ease-in;
 
   background-color: var(--clr-white);
 }

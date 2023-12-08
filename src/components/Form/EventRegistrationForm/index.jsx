@@ -31,8 +31,10 @@ function EventRegistrationForm({ onCloseFn }) {
   } = useEvent();
 
   const submitHandler = async () => {
-    executeRegistration(() => toast.success('Evento registrado com sucesso.'));
-    onCloseFn?.();
+    executeRegistration(() => {
+      toast.success('Evento registrado com sucesso.');
+      onCloseFn?.();
+    });
   };
 
   return (

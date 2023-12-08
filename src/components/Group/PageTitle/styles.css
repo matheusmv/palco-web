@@ -1,6 +1,6 @@
 .PageTitleContainer {
   width: 100%;
-  height: 120px;
+  min-height: 120px;
 
   padding: 0 110px 0 50px;
 

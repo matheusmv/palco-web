@@ -2,7 +2,7 @@
   width: 100%;
   height: 100%;
 
-  /* margin: 10px; */
+  margin: 10px;
   padding: 20px;
 
   display: flex;
@@ -85,7 +85,7 @@
   min-height: 500px;
 
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 
   background-color: var(--clr-white);
@@ -174,9 +174,25 @@
   width: 190px;
 }
 
+.EventTableBodyRowTdCategory {
+  height: 36px;
+}
+
+.EventTableBodyCategoryTag {
+  min-width: 120px;
+  max-width: 100%;
+  height: 100%;
+
+  margin-left: 5px;
+
+  font-size: 16px;
+
+  background-color: var(--clr-background-secondary);
+  border: 2px solid var(--clr-purple-medium);
+}
 
 .EventTablePaginationContainer {
-  width: 900px;
+  width: 100%;
   height: 52px;
 
   padding: 10px 50px;
@@ -189,6 +205,8 @@
 .EventTablePagination {
   width: 100%;
   height: 32px;
+
+  max-width: 600px;
 
   display: flex;
   align-items: center;

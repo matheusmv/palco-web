@@ -1,28 +1,35 @@
 import PropTypes from 'prop-types';
 
-import NormalText from '../../Text/NormalText';
-import DefaultSpinner from '../../Spinner/DefaultSpinner';
+import { useState } from 'react';
 
-import './styles.css';
+import { useEventPage } from '../../../hooks/useEventPage';
+
+import NormalText from '../../Text/NormalText';
 import HDivider from '../../Divider/HDivider';
 import CustomButton from '../../Button/CustomButton';
-import { useEffect, useState } from 'react';
 import EventCardDetails from '../../Card/EventDetailsCard';
 
+import './styles.css';
+
 function EventTable() {
-  const [currentPage, setCurrentPage] = useState(1);
+  const { events, page, handleCurrentPageChange } = useEventPage();
 
   const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
+    handleCurrentPageChange(pageNumber);
   };
 
   return (
     <div className="EventTableContainer">
       <div className="EventTable">
         <EventTableHeader />
-        <EventTableBody />
+        <EventTableBody events={events} />
       </div>
-      <EventTablePagination currentPage={currentPage} totalItems={6} totalPages={17} onPageChange={handlePageChange} />
+      <EventTablePagination
+        currentPage={page.currentPage}
+        totalItems={page.totalItems}
+        totalPages={page.totalPages}
+        onPageChange={handlePageChange}
+      />
     </div>
   );
 }
@@ -53,112 +60,32 @@ function EventTableHeader() {
   );
 }
 
-function EventTableBody() {
+function EventTableBody({ events }) {
   const [eventId, setEventId] = useState('');
   const [showEventDetailsModal, setShowEventDetailsModal] = useState(false);
 
   const callApiAndLoadEventDetails = (id) => {
-    setShowEventDetailsModal(true);
     setEventId(id);
+    setShowEventDetailsModal(true);
   };
-
-  const loading = false;
-
-  if (loading) {
-    return (
-      <div className="EventTableBodyContainer">
-        <DefaultSpinner />
-      </div>
-    );
-  }
 
   return (
     <div className="EventTableBodyContainer">
       <tbody className="EventTableBody">
-        <HDivider />
-        <EventTableBodyRow
-          id={'384053d9-4115-4009-90e3-fdd1cb5bdfc8'}
-          name={
-            'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-          }
-          description={
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-          }
-          location={'Fortaleza - CE'}
-          category={'categoria'}
-          date={'25/12/2023'}
-          onClickFn={callApiAndLoadEventDetails}
-        />
-        <HDivider />
-        <EventTableBodyRow
-          id={'384053d9-4115-4009-90e3-fdd1cb5bdfc8'}
-          name={
-            'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-          }
-          description={
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-          }
-          location={'Fortaleza - CE'}
-          category={'categoria'}
-          date={'25/12/2023'}
-          onClickFn={(id) => console.log(id)}
-        />
-        <HDivider />
-        <EventTableBodyRow
-          id={'384053d9-4115-4009-90e3-fdd1cb5bdfc8'}
-          name={
-            'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-          }
-          description={
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-          }
-          location={'Fortaleza - CE'}
-          category={'categoria'}
-          date={'25/12/2023'}
-          onClickFn={(id) => console.log(id)}
-        />
-        <HDivider />
-        <EventTableBodyRow
-          id={'384053d9-4115-4009-90e3-fdd1cb5bdfc8'}
-          name={
-            'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-          }
-          description={
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-          }
-          location={'Fortaleza - CE'}
-          category={'categoria'}
-          date={'25/12/2023'}
-          onClickFn={(id) => console.log(id)}
-        />
-        <HDivider />
-        <EventTableBodyRow
-          id={'384053d9-4115-4009-90e3-fdd1cb5bdfc8'}
-          name={
-            'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-          }
-          description={
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-          }
-          location={'Fortaleza - CE'}
-          category={'categoria'}
-          date={'25/12/2023'}
-          onClickFn={(id) => console.log(id)}
-        />
-        <HDivider />
-        <EventTableBodyRow
-          id={'384053d9-4115-4009-90e3-fdd1cb5bdfc8'}
-          name={
-            'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-          }
-          description={
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-          }
-          location={'Fortaleza - CE'}
-          category={'categoria'}
-          date={'25/12/2023'}
-          onClickFn={(id) => console.log(id)}
-        />
+        {events.map(({ id, name, description, date, category, local }) => (
+          <>
+            <HDivider />
+            <EventTableBodyRow
+              id={id}
+              name={name}
+              description={description}
+              location={`${local.city} - ${local.state}`}
+              category={category.name}
+              date={new Date(date).toLocaleDateString('pt-BR')}
+              onClickFn={() => callApiAndLoadEventDetails(id)}
+            />
+          </>
+        ))}
       </tbody>
       {showEventDetailsModal && (
         <EventCardDetails eventId={eventId} onCloseFn={() => setShowEventDetailsModal(false)} />
@@ -167,10 +94,14 @@ function EventTableBody() {
   );
 }
 
-function EventTableBodyRow({ id, name, description, location, category, date, onClickFn }) {
+EventTableBody.propTypes = {
+  events: PropTypes.array,
+};
+
+function EventTableBodyRow({ name, description, location, category, date, onClickFn }) {
   return (
     <div className="EventTableBodyRowContainer">
-      <tr className="EventTableBodyRow" onClick={() => onClickFn(id)}>
+      <tr className="EventTableBodyRow" onClick={onClickFn}>
         <td className="EventTableBodyRowTdName">
           <div className="EventTableBodyRowTdContainer">{name}</div>
         </td>
@@ -178,7 +109,9 @@ function EventTableBodyRow({ id, name, description, location, category, date, on
           <div className="EventTableBodyRowTdContainer">{description}</div>
         </td>
         <td className="EventTableBodyRowTdLocation">{location}</td>
-        <td className="EventTableBodyRowTdCategory">{category}</td>
+        <td className="EventTableBodyRowTdCategory">
+          <NormalText className="EventTableBodyCategoryTag" content={category} />
+        </td>
         <td className="EventTableBodyRowTdDate">{date}</td>
       </tr>
     </div>
@@ -186,7 +119,6 @@ function EventTableBodyRow({ id, name, description, location, category, date, on
 }
 
 EventTableBodyRow.propTypes = {
-  id: PropTypes.number,
   name: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   description: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   location: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
@@ -195,20 +127,30 @@ EventTableBodyRow.propTypes = {
   onClickFn: PropTypes.func,
 };
 
-function EventTablePagination({ currentPage, totalItems, totalPages, onPageChange }) {
-  const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+function getVisiblePaginationButtons(totalItems, currentPage, totalPages) {
+  const visiblePages = totalItems;
+  const halfVisiblePages = Math.floor(visiblePages / 2);
 
+  const startPage = Math.max(1, currentPage - halfVisiblePages);
+  const endPage = Math.min(totalPages, startPage + visiblePages - 1);
+
+  return Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
+}
+
+function EventTablePagination({ currentPage, totalItems, totalPages, onPageChange }) {
   return (
     <div className="EventTablePaginationContainer">
       <ul className="EventTablePagination">
-        <CustomButton
-          className="EventTablePaginationButton PrevButton"
-          text="Anterior"
-          onClick={() => onPageChange(currentPage - 1)}
-          disabled={currentPage === 1}
-        />
+        {totalPages > 1 && (
+          <CustomButton
+            className="EventTablePaginationButton PrevButton"
+            text="Anterior"
+            onClickFn={() => onPageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+          />
+        )}
         <div className="EventTablePaginationButtonContainer">
-          {pages.map((page) => (
+          {getVisiblePaginationButtons(totalItems, currentPage, totalPages).map((page) => (
             <CustomButton
               key={page}
               className={`EventTablePaginationButton ${
@@ -219,12 +161,14 @@ function EventTablePagination({ currentPage, totalItems, totalPages, onPageChang
             />
           ))}
         </div>
-        <CustomButton
-          className="EventTablePaginationButton NextButton"
-          text="Próximo"
-          onClick={() => onPageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}
-        />
+        {totalPages > 1 && (
+          <CustomButton
+            className="EventTablePaginationButton NextButton"
+            text="Próximo"
+            onClickFn={() => onPageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          />
+        )}
       </ul>
     </div>
   );

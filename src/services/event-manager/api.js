@@ -83,12 +83,19 @@ export async function registerEvent({
 }
 
 export async function getEventById(eventId) {
-  const token = await getItemStorage(AUTHORIZATION_KEY);
-  if (!token) {
-    return null;
-  }
+  return api.get(`/api/v1/events/${eventId}`).then((res) => {
+    if (!res.data) {
+      return null;
+    }
 
-  return api.get(`/api/v1/events/${eventId}`, { headers: { Authorization: `Bearer ${token}` } }).then((res) => {
+    return res.data;
+  });
+}
+
+// TODO implement filters
+
+export async function fetchEventPage({ page, size, filters }) {
+  return api.get(`/api/v1/events/page`, { params: { page, size } }).then((res) => {
     if (!res.data) {
       return null;
     }

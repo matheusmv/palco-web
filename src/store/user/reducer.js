@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const userState = {
-  accessToken: undefined,
   user: undefined,
   admin: false,
 };
@@ -11,7 +10,6 @@ const slice = createSlice({
   initialState: userState,
   reducers: {
     authUser: (state, action) => {
-      state.accessToken = action.payload.accessToken;
       state.user = action.payload.user;
       state.admin = action.payload.user.role === 'ADMIN';
     },
