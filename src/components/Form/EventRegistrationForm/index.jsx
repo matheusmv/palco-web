@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 
 import { toast } from 'react-toastify';
-import { useEventRegistration } from '../../../hooks/useEventRegistration';
+
+import { useEvent } from '../../../hooks/useEvent';
 
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -14,33 +15,24 @@ import './styles.css';
 
 function EventRegistrationForm({ onCloseFn }) {
   const {
-    eventName,
-    eventDate,
-    eventDescripton,
-    eventCategory,
-    eventLocationCep,
-    eventLocationState,
-    eventLocationCity,
-    eventLocationNeighborhood,
-    eventLocationStreet,
-    eventLocationNumber,
-    eventLocationComplement,
-    handleEventNameChange,
-    handleEventDateChange,
-    handleEventDescriptionChange,
-    handleEventCategoryChange,
-    handleEventLocationCepChange,
-    handleEventLocationStateChange,
-    handleEventLocationCityChange,
-    handleEventLocationNeighborhoodChange,
-    handleEventLocationStreetChange,
-    handleEventLocationNumberChange,
-    handleEventLocationComplementChange,
-    executeEventRegistration,
-  } = useEventRegistration();
+    eventDetails,
+    handleNameChange,
+    handleDateChange,
+    handleDescriptionChange,
+    handleCategoryChange,
+    handleCepChange,
+    handleStateChange,
+    handleCityChange,
+    handleNeighborhoodChange,
+    handleStreetChange,
+    handleNumberChange,
+    handleComplementChange,
+    executeRegistration,
+  } = useEvent();
 
   const submitHandler = async () => {
-    executeEventRegistration(() => toast.success('Evento registrado com sucesso.'));
+    executeRegistration(() => toast.success('Evento registrado com sucesso.'));
+    onCloseFn?.();
   };
 
   return (
@@ -52,21 +44,21 @@ function EventRegistrationForm({ onCloseFn }) {
             className="EventRegistrationFormInput"
             placeHolder="Nome"
             style={{ width: '100%' }}
-            value={eventName}
-            onChangeFn={handleEventNameChange}
+            value={eventDetails.name}
+            onChangeFn={handleNameChange}
           />
           <div className="EventRegistrationFormGroupInRow">
             <TextInput
               className="EventRegistrationFormInput"
               placeHolder="Data"
-              value={eventDate}
-              onChangeFn={handleEventDateChange}
+              value={eventDetails.date}
+              onChangeFn={handleDateChange}
             />
             <TextInput
               className="EventRegistrationFormInput"
               placeHolder="Categoria"
-              value={eventCategory}
-              onChangeFn={handleEventCategoryChange}
+              value={eventDetails.category}
+              onChangeFn={handleCategoryChange}
             />
           </div>
           <div className="EventRegistrationFormGroupInColumn" style={{ margin: '15px' }}>
@@ -74,8 +66,8 @@ function EventRegistrationForm({ onCloseFn }) {
             <TextArea
               style={{ height: '150px', width: '100%' }}
               fixed
-              value={eventDescripton}
-              onChangeFn={handleEventDescriptionChange}
+              value={eventDetails.description}
+              onChangeFn={handleDescriptionChange}
             />
           </div>
         </form>
@@ -90,50 +82,50 @@ function EventRegistrationForm({ onCloseFn }) {
             <TextInput
               className="EventRegistrationFormInput LocationInput"
               placeHolder="CEP"
-              value={eventLocationCep}
-              onChangeFn={handleEventLocationCepChange}
+              value={eventDetails.cep}
+              onChangeFn={handleCepChange}
             />
             <TextInput
               className="EventRegistrationFormInput LocationInput"
               placeHolder="Número"
-              value={eventLocationNumber}
-              onChangeFn={handleEventLocationNumberChange}
+              value={eventDetails.number}
+              onChangeFn={handleNumberChange}
             />
           </div>
           <TextInput
             className="EventRegistrationFormInput LocationInput"
             placeHolder="Rua"
             style={{ width: '100%' }}
-            value={eventLocationStreet}
-            onChangeFn={handleEventLocationStreetChange}
+            value={eventDetails.street}
+            onChangeFn={handleStreetChange}
           />
           <TextInput
             className="EventRegistrationFormInput LocationInput"
             placeHolder="Bairro"
             style={{ width: '100%' }}
-            value={eventLocationNeighborhood}
-            onChangeFn={handleEventLocationNeighborhoodChange}
+            value={eventDetails.neighborhood}
+            onChangeFn={handleNeighborhoodChange}
           />
           <div className="EventRegistrationFormGroupInRow">
             <TextInput
               className="EventRegistrationFormInput LocationInput"
               placeHolder="Cidade"
-              value={eventLocationCity}
-              onChangeFn={handleEventLocationCityChange}
+              value={eventDetails.city}
+              onChangeFn={handleCityChange}
             />
             <TextInput
               className="EventRegistrationFormInput LocationInput"
               placeHolder="Estado"
-              value={eventLocationState}
-              onChangeFn={handleEventLocationStateChange}
+              value={eventDetails.state}
+              onChangeFn={handleStateChange}
             />
           </div>
           <TextInput
             className="EventRegistrationFormInput LocationInput"
             placeHolder="Complemento"
             style={{ width: '100%' }}
-            value={eventLocationComplement}
-            onChangeFn={handleEventLocationComplementChange}
+            value={eventDetails.complement}
+            onChangeFn={handleComplementChange}
           />
         </form>
         <CustomButton

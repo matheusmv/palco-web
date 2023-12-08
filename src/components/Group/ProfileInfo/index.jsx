@@ -4,19 +4,17 @@ import { useState } from 'react';
 
 import { useLogout } from '../../../hooks/useLogout';
 
-import NormalText from '../../Text/NormalText';
-
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import PersonIcon from '@mui/icons-material/Person';
 import { Logout } from '@mui/icons-material';
 import { ListItemIcon } from '@mui/material';
 
+import NormalText from '../../Text/NormalText';
+
 import './styles.css';
 
 function ProfileInfo({ username = 'Username', role = 'Role' }) {
-  const logout = useLogout();
-
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -27,6 +25,8 @@ function ProfileInfo({ username = 'Username', role = 'Role' }) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const logout = useLogout();
 
   return (
     <div className="ProfileInfoContainer">

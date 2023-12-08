@@ -11,9 +11,9 @@ import LinkText from '../../Text/LinkText';
 import './styles.css';
 
 function LoginForm() {
-  const navigate = useNavigate();
+  const { authDetails, handleEmailChange, handlePasswordChange, executeAuthentication } = useLogin();
 
-  const { email, password, handleEmailChange, handlePasswordChange, executeAuthentication } = useLogin();
+  const navigate = useNavigate();
 
   const submitHandler = async () => {
     const from = location.state?.from.pathname || '/';
@@ -24,10 +24,15 @@ function LoginForm() {
     <div className="LoginFormContainer">
       <h2 className="LoginFormTitle">Login</h2>
       <form className="LoginForm">
-        <TextInput className="LoginFormInput" value={email} placeHolder={'E-mail'} onChangeFn={handleEmailChange} />
+        <TextInput
+          className="LoginFormInput"
+          value={authDetails.email}
+          placeHolder={'E-mail'}
+          onChangeFn={handleEmailChange}
+        />
         <PasswordInput
           className="LoginFormInput"
-          value={password}
+          value={authDetails.password}
           placeHolder={'Senha'}
           onChangeFn={handlePasswordChange}
           bottomMessage={<LinkText className="LoginFormPasswordRecoveryLink" content={'Esqueceu a senha?'} />}

@@ -3,19 +3,21 @@ import { registerUser } from '../../services/event-manager/api';
 import { toast } from 'react-toastify';
 
 export function useSignUp() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [userDetails, setUserDetails] = useState({
+    email: '',
+    password: '',
+  });
 
   const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+    setUserDetails((state) => ({ ...state, email: e.target.value }));
   };
 
   const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
+    setUserDetails((state) => ({ ...state, password: e.target.value }));
   };
 
   const executeSignUp = async (onSuccessFn, onErrorFn) => {
-    await registerUser(email, password)
+    await registerUser(userDetails)
       .then(() => {
         onSuccessFn?.();
       })
@@ -36,5 +38,5 @@ export function useSignUp() {
       });
   };
 
-  return { email, password, handleEmailChange, handlePasswordChange, executeSignUp };
+  return { userDetails, handleEmailChange, handlePasswordChange, executeSignUp };
 }

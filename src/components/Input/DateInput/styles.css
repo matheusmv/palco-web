@@ -1,0 +1,51 @@
+.DateInputContainer {
+  position: relative;
+
+  width: 400px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+
+  background-color: transparent;
+}
+
+.DateInput {
+  width: 400px;
+  height: 34px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  border: none;
+  border-bottom: 2px solid var(--clr-gray-400);
+
+  color: var(--clr-black);
+}
+
+.CalendarIcon {
+  position: absolute;
+
+  color: var(--clr-purple-medium);
+
+  left: calc(100% - 26px);
+}
+
+.DateInput:focus {
+  outline: none;
+  border-bottom: 2px solid var(--clr-purple-medium);
+}
+
+.DateInputBottomMessage {
+  width: 100%;
+  display: flex;
+  font-size: 13px;
+}
+
+@media screen and (max-width: 375px) {
+  .DateInputContainer {
+    width: 310px;
+    height: 60px;
+  }
+}
