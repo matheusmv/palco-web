@@ -1,0 +1,103 @@
+.DefaultFooterContainer {
+  width: 100%;
+  height: 145px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.DefaultFooter {
+  width: 100%;
+  height: 100%;
+
+  padding: 10px 50px 10px 50px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.FooterVDivider {
+  height: 20px;
+  margin: 0 10px 0 10px;
+}
+
+.DefaultFooterUpperSection,
+.DefaultFooterLowerSection,
+.DefaultFooterLowerSection-left,
+.DefaultFooterLowerSection-right {
+  width: 100%;
+  height: 50px;
+}
+
+.DefaultFooterUpperSection,
+.DefaultFooterLowerSection,
+.DefaultFooterLowerSection-left,
+.DefaultFooterLowerSection-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.DefaultFooterLowerSection-left {
+  justify-content: flex-start;
+}
+
+.DefaultFooterLowerSection-right {
+  justify-content: flex-end;
+}
+
+.LanguageSelector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.LanguageSelector-icon {
+  margin-right: 10px;
+  cursor: pointer;
+  color: var(--clr-purple-medium);
+}
+
+@media screen and (max-width: 375px) {
+  .FooterVDivider {
+    display: none;
+  }
+
+  .DefaultFooter {
+    padding: 0 20px 0 20px;
+  }
+
+  .DefaultFooterContainer,
+  .DefaultFooter,
+  .DefaultFooterUpperSection,
+  .DefaultFooterLowerSection,
+  .DefaultFooterLowerSection-left,
+  .DefaultFooterLowerSection-right {
+    height: fit-content;
+    flex-direction: column;
+  }
+
+  .DefaultFooterUpperSection,
+  .DefaultFooterLowerSection {
+    padding: 10px 0 10px 0;
+  }
+
+  .FooterLink,
+  .FooterText {
+    font-size: 13px;
+  }
+
+  .LanguageSelector {
+    margin-top: 5px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .FooterLink,
+  .FooterText {
+    font-size: 13px;
+  }
+}

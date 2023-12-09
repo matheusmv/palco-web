@@ -1,0 +1,35 @@
+.CustomButton {
+  width: 120px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 10px 30px 10px 30px;
+
+  font-size: 14px;
+  font-weight: bold;
+
+  color: var(--clr-white);
+  background-color: var(--clr-purple-medium);
+
+  border: none;
+  cursor: pointer;
+  user-select: none;
+
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+}
+
+.CustomButton:hover {
+  background-color: var(--clr-purple-light);
+  transition-duration: 0.1s;
+}
+
+.CustomButton:active {
+  background-color: var(--clr-purple-medium);
+  transition-duration: 0.1s;
+}
