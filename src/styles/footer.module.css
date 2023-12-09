@@ -3,7 +3,6 @@
     gap: 20px;
     width: 100%;
     justify-content: center;
-    
 }
 
 .container2 {
@@ -23,7 +22,7 @@
 
 .borda {
     border-left: 1px solid #ababab;
-    padding-left: 10px;
+    padding-left: 20px;
     margin-bottom: 15px;
 }
 

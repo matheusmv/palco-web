@@ -2,12 +2,13 @@
 
 .container {
     display: flex;
-    height: 100vh;
+    height: 84vh;
 }
 
 .paragrafo {
     font-size: 28pt;
     font-weight: bold;
+    margin-bottom: 12px;
 }
 
 .form {
@@ -67,7 +68,7 @@
     align-items: center;
     align-content: center;
     justify-content: center;
-    height: 550px;
+    height: 718px; 
 }
 
 .btn {
@@ -81,7 +82,7 @@
     transition: all linear 160ms;
     cursor: pointer;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 
 }
 
