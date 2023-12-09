@@ -6,7 +6,6 @@ import styles from '@/styles/login.module.css'
 import NavBar from '@/components/NavBarLogin'
 import Footer from '@/components/Footer'
 
-
 export default function Login() {
 
     const [email, setEmail] = useState('')
@@ -74,14 +73,13 @@ export default function Login() {
                     </div>
                     <div>
                         <p>Não possui uma conta?<span className={styles.cor}>
-                            <Link href='/criarConta'> Crie uma</Link></span></p>
+                            <Link href='/criarConta'> CRIE UMA</Link></span></p>
                     </div>
                 </div>
-                <Footer />
+
             </div>
         </div>
 
 
     )
 }
-

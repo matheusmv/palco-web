@@ -1,8 +1,14 @@
+import Login from '@/pages/login/Login'
+import NavBarLogin from '@/components/NavBarLogin'
+import Footer from '@/components/Footer'
+
 
 export default function Home() {
   return (
-    <main>
-      <p>Palco Web</p>
-    </main>
+    <>
+      <NavBarLogin />
+      <Login />
+      <Footer />
+    </>
   )
 }
