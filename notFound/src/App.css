@@ -1,0 +1,25 @@
+.container {
+  width: 546px;
+  height: 456px;
+  flex-shrink: 0;
+  border-radius: 84px;
+  background: #f4f4f4;
+}
+
+#root {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.card {
+  width: 550px;
+  height: 75px;
+  flex-shrink: 0;
+  color: #1e1e1e;
+  text-align: center;
+  font-family: Inter;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
