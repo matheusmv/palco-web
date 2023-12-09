@@ -1,0 +1,234 @@
+.EventCardDetailsContainer {
+  position: absolute;
+
+  top: calc(100vh / 5);
+
+  min-width: 340px;
+  max-width: 730px;
+  min-height: 470px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.32);
+
+  transition: all .3s ease-in;
+
+  background-color: var(--clr-white);
+
+  z-index: 1000;
+}
+
+.EventCardDetailsHeaderContainer,
+.EventCardDetailsBodyContainer {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.EventCardDetailsHeaderContainer {
+  height: 115px;
+
+  background-color: var(--clr-purple-dark);
+}
+
+.EventCardDetailsHeaderLeftSection,
+.EventCardDetailsHeaderRightSection {
+  width: 50%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.EventCardDetailsHeaderLeftSection {
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.EventCardDetailsCategoryInfo {
+  width: fit-content;
+  height: 30px;
+
+  padding: 10px 20px;
+
+  color: var(--clr-white);
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  background-color: var(--clr-purple-medium);
+}
+
+.EventCardDetailsHeaderRightSection {
+  padding: 10px;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.EventCardDetailsDateInfoContainer {
+  width: 72px;
+  height: 72px;
+
+  padding: 8px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border-radius: 100%;
+
+  background-color: var(--clr-purple-medium);
+}
+
+.EventCardDetailsDate {
+  color: var(--clr-white);
+}
+
+.Day,
+.Month,
+.Year {
+  font-weight: bold;
+}
+
+.Day {
+  font-size: 16px;
+}
+
+.Month {
+  font-size: 18px;
+}
+
+.Year {
+  font-size: 12px;
+}
+
+.EventCardDetailsDateInfo-close-icon {
+  position: absolute;
+
+  min-width: 28px;
+  min-height: 28px;
+
+  padding: 5px;
+
+  top: calc(50% - 248px);
+  right: calc(50% - 184px);
+
+  border-radius: 100%;
+
+  background-color: var(--clr-red);
+
+  color: var(--clr-white);
+
+  cursor: pointer;
+}
+
+.EventCardDetailsDateInfo-close-icon:hover {
+  min-width: 38px;
+  min-height: 38px;
+}
+
+.EventCardDetailsBodyContainer {
+  height: fit-content;
+
+  padding: 10px;
+}
+
+.EventCardDetailsBody {
+  width: 100%;
+  height: 100%;
+
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.EventCardDetailsTitle {
+  padding: 5px 0;
+
+  font-size: 22px;
+}
+
+.EventCardDetailsLocation {
+  padding: 5px 0;
+
+  font-size: 16px;
+
+  font-weight: normal;
+
+  color: var(--clr-purple-medium);
+}
+
+.EventCardDetailsDescription {
+  width: 100%;
+  max-width: 690px;
+  height: 184px;
+
+  margin: 10px 0;
+  padding: 5px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  color: var(--clr-gray-700);
+
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.EventCardDetailsBodyFooter {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.EventCardDetailsBodyFooterLeftSection,
+.EventCardDetailsBodyFooterRightSection {
+  width: fit-content;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.EventCardDetailsBodyFooterLeftSection {
+  width: 32px;
+  height: 32px;
+
+  padding: 5px;
+
+  align-items: center;
+  justify-content: center;
+
+  color: var(--clr-white);
+
+  background-color: var(--clr-purple-medium);
+
+  border-radius: 100%;
+}
+
+.EventCardDetailsBodyFooterRightSection {
+  width: 100%;
+  height: 48px;
+
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.EventCardDetailsEditButton {
+  border-radius: 100%;
+}
+
+.EventCardDetailsLocationMeta {
+  color: var(--clr-blue) !important;
+}

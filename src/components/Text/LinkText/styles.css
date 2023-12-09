@@ -1,0 +1,16 @@
+.LinkText {
+  font-size: 14px;
+
+  height: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--clr-black);
+  text-decoration: none;
+}
+
+.LinkText:hover {
+  color: var(--clr-purple-medium);
+}

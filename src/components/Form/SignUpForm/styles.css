@@ -1,0 +1,103 @@
+.SignUpFormContainer,
+.SignUpFormTitle,
+.SignUpForm,
+.SignUpFormSubmitButtonContainer,
+.SignUpFormBottomMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.SignUpFormContainer {
+  width: 100%;
+  max-width: 760px;
+  height: 720px;
+
+  padding: 170px 130px;
+
+  flex-direction: column;
+}
+
+.SignUpFormTitle {
+  width: 100%;
+
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.SignUpForm {
+  width: 100%;
+  height: 235px;
+
+  margin: 10px 0 10px 0;
+
+  flex-direction: column;
+}
+
+.SignUpForm,
+.SignUpFormInput {
+  background-color: var(--clr-gray-100);
+}
+
+.SignUpFormPasswordAllert {
+  font-size: 12.5px !important;
+  color: var(--clr-gray-400) !important;
+}
+
+.SignUpFormSubmitButtonContainer {
+  width: 100%;
+  height: 40px;
+
+  margin: 10px 0 10px 0;
+}
+
+.SignUpFormBottomMessage {
+  width: 100%;
+  height: 18px;
+
+  margin: 10px 0 10px 0;
+}
+
+.FormBottomMessage,
+.FormBottomLink {
+  margin: 0 2px 0 2px;
+  font-size: 12px;
+}
+
+.FormBottomLink {
+  color: var(--clr-purple-medium);
+  font-weight: bold;
+}
+
+@media screen and (max-width: 375px) {
+  .SignUpFormContainer {
+    width: 100%;
+    height: 530px;
+
+    margin: 10px;
+    padding: 10px;
+
+    justify-content: flex-start;
+  }
+
+  .SignUpFormTitle {
+    font-size: 24px;
+  }
+
+  .SignUpForm {
+    height: 195px;
+  }
+
+  .SignUpFormInput,
+  .SignUpFormPasswordAllert {
+    font-size: 13px;
+  }
+
+  .SignUpFormSubmitButtonContainer {
+    margin: 0;
+  }
+
+  .FormSubmitButton {
+    width: 100%;
+  }
+}

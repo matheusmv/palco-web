@@ -1,0 +1,44 @@
+.NotFoundMessageCard {
+  width: 100%;
+  max-width: 760px;
+  height: 720px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.NotFoundMessage {
+  font-size: 18px !important;
+}
+
+.NotFoundMessageStatusCode {
+  height: fit-content !important;
+  font-size: 300px !important;
+}
+
+.NotFoundMessageReturnLink {
+  font-size: 22px !important;
+  color: var(--clr-purple-medium) !important;
+}
+
+@media screen and (max-width: 375px) {
+  .NotFoundMessageCard {
+    flex: 1;
+
+    width: 100%;
+    height: 530px;
+
+    justify-content: space-around;
+  }
+
+  .NotFoundMessage {
+    width: fit-content;
+    font-size: 13px !important;
+  }
+
+  .NotFoundMessageStatusCode {
+    font-size: 150px !important;
+  }
+}

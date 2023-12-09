@@ -1,0 +1,23 @@
+.PageTitleContainer {
+  width: 100%;
+  min-height: 120px;
+
+  padding: 0 110px 0 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.PageTitle {
+  font-size: 32px;
+}
+
+.AddNewEventButton {
+  width: 140px !important;
+  height: 40px !important;
+
+  padding: 10px 15px !important;
+
+  justify-content: space-between !important;
+}

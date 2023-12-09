@@ -1,0 +1,103 @@
+.LoginFormContainer,
+.LoginFormTitle,
+.LoginForm,
+.LoginFormSubmitButtonContainer,
+.LoginFormBottomMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.LoginFormContainer {
+  width: 100%;
+  max-width: 760px;
+  height: 720px;
+
+  padding: 170px 130px;
+
+  flex-direction: column;
+}
+
+.LoginFormTitle {
+  width: 100%;
+
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.LoginForm {
+  width: 100%;
+  height: 235px;
+
+  margin: 10px 0 10px 0;
+
+  flex-direction: column;
+}
+
+.LoginForm,
+.LoginFormInput {
+  background-color: var(--clr-gray-100);
+}
+
+.LoginFormPasswordRecoveryLink {
+  font-size: 12.5px !important;
+  color: var(--clr-blue) !important;
+}
+
+.LoginFormSubmitButtonContainer {
+  width: 100%;
+  height: 40px;
+
+  margin: 10px 0 10px 0;
+}
+
+.LoginFormBottomMessage {
+  width: 100%;
+  height: 18px;
+
+  margin: 10px 0 10px 0;
+}
+
+.FormBottomMessage,
+.FormBottomLink {
+  margin: 0 2px 0 2px !important;
+  font-size: 12px !important;
+}
+
+.FormBottomLink {
+  color: var(--clr-purple-medium) !important;
+  font-weight: bold !important;
+}
+
+@media screen and (max-width: 375px) {
+  .LoginFormContainer {
+    width: 100%;
+    height: 530px;
+
+    margin: 10px;
+    padding: 10px;
+
+    justify-content: flex-start;
+  }
+
+  .LoginFormTitle {
+    font-size: 24px;
+  }
+
+  .LoginForm {
+    height: 195px;
+  }
+
+  .LoginFormInput,
+  .LoginFormPasswordRecoveryLink {
+    font-size: 13px;
+  }
+
+  .LoginFormSubmitButtonContainer {
+    margin: 0;
+  }
+
+  .FormSubmitButton {
+    width: 100%;
+  }
+}
