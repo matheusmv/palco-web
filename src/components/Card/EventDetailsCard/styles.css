@@ -1,8 +1,8 @@
 .EventCardDetailsContainer {
   position: absolute;
 
-  top: calc(100vh / 5);
-  left: calc(100vw / 2.5);
+  /* top: calc(100vh / 5); */
+  right: calc(100vw / 3);
 
   min-width: 340px;
   max-width: 730px;
@@ -68,6 +68,7 @@
 }
 
 .EventCardDetailsHeaderRightSection {
+  position: relative;
   padding: 10px;
   align-items: flex-start;
   justify-content: flex-end;
@@ -118,8 +119,8 @@
 
   padding: 5px;
 
-  top: calc(50% - 248px);
-  right: calc(50% - 184px);
+  top: -12px;
+  right: -12px;
 
   border-radius: 100%;
 
