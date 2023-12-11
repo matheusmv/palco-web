@@ -6,9 +6,10 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 import { useEventPage } from '../../../hooks/useEventPage';
-import CustomButton from '../../Button/CustomButton';
+import { parseEventDate } from '../../../utils/date';
 import EventCardDetails from '../../Card/EventDetailsCard';
 import HDivider from '../../Divider/HDivider';
+import Pagination from '../../Pagination';
 import NormalText from '../../Text/NormalText';
 
 function EventTable() {
@@ -24,7 +25,7 @@ function EventTable() {
         <EventTableHeader onOrderChangeFn={handleFilterChange} />
         <EventTableBody events={events} />
       </div>
-      <EventTablePagination
+      <Pagination
         currentPage={page.currentPage}
         totalItems={page.totalItems}
         totalPages={page.totalPages}
@@ -87,6 +88,11 @@ function EventTableBody({ events }) {
     setShowEventDetailsModal(true);
   };
 
+  const formatDate = (date) => {
+    const { day, month, year } = parseEventDate(date);
+    return `${day}/${month}/${year}`;
+  };
+
   return (
     <div className="EventTableBodyContainer">
       <tbody className="EventTableBody">
@@ -98,7 +104,7 @@ function EventTableBody({ events }) {
               description={description}
               location={`${local.city} - ${local.state}`}
               category={category.name.toUpperCase()}
-              date={new Date(date).toLocaleDateString('pt-BR')}
+              date={formatDate(date)}
               onClickFn={() => callApiAndLoadEventDetails(id)}
             />
           </>
@@ -142,60 +148,6 @@ EventTableBodyRow.propTypes = {
   category: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   date: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   onClickFn: PropTypes.func,
-};
-
-function getVisiblePaginationButtons(totalItems, currentPage, totalPages) {
-  const visiblePages = totalItems;
-  const halfVisiblePages = Math.floor(visiblePages / 2);
-
-  const startPage = Math.max(1, currentPage - halfVisiblePages);
-  const endPage = Math.min(totalPages, startPage + visiblePages - 1);
-
-  return Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
-}
-
-function EventTablePagination({ currentPage, totalItems, totalPages, onPageChange }) {
-  return (
-    <div className="EventTablePaginationContainer">
-      <ul className="EventTablePagination">
-        {totalPages > 1 && (
-          <CustomButton
-            className="EventTablePaginationButton PrevButton"
-            text="Anterior"
-            onClickFn={() => onPageChange(currentPage - 1)}
-            disabled={currentPage === 1}
-          />
-        )}
-        <div className="EventTablePaginationButtonContainer">
-          {getVisiblePaginationButtons(totalItems, currentPage, totalPages).map((page) => (
-            <CustomButton
-              key={page}
-              className={`EventTablePaginationButton ${
-                page === currentPage ? 'EventTablePaginationButton-active' : ''
-              }`}
-              text={page}
-              onClickFn={() => onPageChange(page)}
-            />
-          ))}
-        </div>
-        {totalPages > 1 && (
-          <CustomButton
-            className="EventTablePaginationButton NextButton"
-            text="Próximo"
-            onClickFn={() => onPageChange(currentPage + 1)}
-            disabled={currentPage === totalPages}
-          />
-        )}
-      </ul>
-    </div>
-  );
-}
-
-EventTablePagination.propTypes = {
-  currentPage: PropTypes.number,
-  totalItems: PropTypes.number,
-  totalPages: PropTypes.number,
-  onPageChange: PropTypes.func,
 };
 
 export default EventTable;

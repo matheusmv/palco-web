@@ -18,7 +18,7 @@ function SignUp() {
   }, [token, navigate]);
 
   return (
-    <Container style={{ flexDirection: 'column', alignItems: 'center' }}>
+    <Container style={{ width: '100%', flexDirection: 'column', alignItems: 'center' }}>
       <DefaultHeader />
       <SignUpForm />
       <DefaultFooter />

@@ -18,11 +18,24 @@
   background-color: var(--clr-gray-100);
 }
 
+.SearchBar-button {
+  width: fit-content !important;
+  padding: 0 5px !important;
+  border-radius: 5px 0 0 5px !important;
+  background-color: transparent !important;
+}
+
+.SearchBar-button:hover {
+  background-color: var(--clr-gray-200) !important;
+}
+
+.SearchBar-button:active {
+  background-color: var(--clr-gray-400) !important;
+}
+
 .SearchBar-icon {
   min-width: 30px;
   min-height: 30px;
-
-  margin: 0 5px 0 8px;
 
   color: var(--clr-purple-medium);
 }
@@ -48,13 +61,25 @@
 .SearchBarFilter {
   width: 100px;
   height: 100%;
-
-  margin: 0 5px 0 5px;
   padding: 0 0 0 5px;
 
   display: flex;
   align-items: center;
   justify-content: space-around;
+
+  border-radius: 0 5px 5px 0;
+
+  transition-duration: 0.4s;
+}
+
+.SearchBarFilter:hover {
+  background-color: var(--clr-gray-200);
+  transition-duration: 0.1s;
+}
+
+.SearchBarFilter:active {
+  background-color: var(--clr-gray-400);
+  transition-duration: 0.1s;
 }
 
 .SearchBarFilter-text {
@@ -64,6 +89,9 @@
 
 .SearchBarFilter-icon {
   color: var(--clr-purple-medium);
+}
 
+.SearchBarFilter,
+.SearchBarFilter-icon {
   cursor: pointer;
 }

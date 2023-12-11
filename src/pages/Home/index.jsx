@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import Container from '../../components/Container';
@@ -13,31 +13,26 @@ import Sidebar from '../../components/Sidebar';
 import DefaultSpinner from '../../components/Spinner/DefaultSpinner';
 import EventTable from '../../components/Table/EventTable';
 import { useAuth } from '../../hooks/useAuth';
-import { setUser } from '../../store/user/reducer';
-import { clearStorage } from '../../utils/auth/storage.proxy';
 
 function Home() {
   const [loading, setLoading] = useState(true);
 
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const { user } = useSelector((state) => state.userReducer);
 
-  const { checkUserToken } = useAuth();
+  const { ensureAuthenticated } = useAuth();
 
   useEffect(() => {
-    checkUserToken(
-      (user) => {
-        dispatch(setUser(user));
+    ensureAuthenticated(
+      () => {
         setLoading(false);
       },
       () => {
-        clearStorage();
-        navigate('/login', { replace: true });
+        navigate('/login');
       },
     );
-  }, [checkUserToken, dispatch, navigate]);
+  }, [ensureAuthenticated, navigate]);
 
   if (loading) {
     return (
@@ -48,7 +43,7 @@ function Home() {
   }
 
   return (
-    <Container style={{ flexDirection: 'column', overflowX: 'hidden' }}>
+    <Container style={{ width: '100%', flexDirection: 'column' }}>
       <CustomHeader>
         <SearchBar />
         <VDivider />
@@ -58,7 +53,8 @@ function Home() {
       <HDivider />
       <Container
         style={{
-          height: 'fit-content',
+          width: '100%',
+          height: '100%',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'flex-start',

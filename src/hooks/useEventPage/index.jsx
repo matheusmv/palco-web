@@ -2,17 +2,20 @@ import { useCallback, useEffect, useState } from 'react';
 
 import { fetchEventPage } from '../../services/event-manager/api';
 
-export function useEventPage() {
+export function useEventPage(
+  { initialPage, itemsPerPage, defaultFilters } = { initialPage: 1, itemsPerPage: 5, defaultFilters: {} },
+) {
   const [events, setEvents] = useState([]);
   const [page, setPage] = useState({
-    itemsPerPage: 5,
+    itemsPerPage: itemsPerPage,
     totalItems: 0,
-    currentPage: 1,
+    currentPage: initialPage,
     totalPages: 0,
   });
   const [filters, setFilters] = useState({
-    orderBy: undefined,
+    orderBy: 'date',
     order: 'asc',
+    ...defaultFilters,
   });
 
   const handleCurrentPageChange = async ({ pageNumber }) => {
