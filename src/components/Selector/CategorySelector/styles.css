@@ -1,0 +1,129 @@
+.CategorySelectorContainer {
+  width: 400px;
+  height: 60px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: transparent;
+}
+
+.CategorySelector {
+  position: relative;
+
+  width: 100%;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-bottom: 2px solid var(--clr-gray-400);
+
+  color: var(--clr-black);
+}
+
+.CategorySelectorDropdownButton {
+  width: 100%;
+  height: 100%;
+
+  padding: 0 0 0 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: transparent;
+
+  border: none;
+
+  cursor: pointer;
+}
+
+.Selector-icon {
+  min-width: 32px;
+  min-height: 32px;
+  color: var(--clr-purple-medium);
+  cursor: pointer;
+}
+
+.Selector-open {
+  transform: rotate(180deg);
+}
+
+.CategorySelector:focus {
+  outline: none;
+  border-bottom: 2px solid var(--clr-purple-medium);
+}
+
+.CategorySelectorDropdownMenu {
+  position: absolute;
+
+  height: 100px;
+
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  top: 100%;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1px;
+
+  border: 1px solid var(--clr-purple-light);
+
+  border-top: none;
+
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  list-style: none;
+
+  background-color: var(--clr-white);
+
+  z-index: 1;
+}
+
+.CategorySelectorDropdownItem,
+.CategorySelectorDropdownItemButton {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  background-color: transparent;
+}
+
+.CategorySelectorDropdownItemButton {
+  width: 100%;
+  height: 32px;
+
+  padding: 0 5px 0 5px;
+
+  color: var(--clr-gray-700);
+
+  font-size: 13px;
+
+  border: none;
+  cursor: pointer;
+
+  background-color: var(--clr-white);
+}
+
+.CategorySelectorDropdownItemButton:hover {
+  background-color: var(--clr-gray-200);
+}
+
+@media screen and (max-width: 375px) {
+  .CategorySelectorContainer {
+    width: 310px;
+    height: 60px;
+  }
+}

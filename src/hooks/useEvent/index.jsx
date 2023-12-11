@@ -35,8 +35,8 @@ export function useEvent() {
     setFieldOnState('description', e.target.value);
   };
 
-  const handleCategoryChange = (e) => {
-    setFieldOnState('category', e.target.value);
+  const handleCategoryChange = (value) => {
+    setFieldOnState('category', value);
   };
 
   const handleCepChange = (e) => {

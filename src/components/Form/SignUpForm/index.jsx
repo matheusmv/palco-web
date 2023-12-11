@@ -43,7 +43,7 @@ function SignUpForm() {
         />
       </form>
       <div className="SignUpFormSubmitButtonContainer">
-        <CustomButton className="FormSubmitButton" text="ENTRAR" onClickFn={() => submitHandler()} />
+        <CustomButton className="FormSubmitButton" text="CRIAR CONTA" onClickFn={() => submitHandler()} />
       </div>
       <div className="SignUpFormBottomMessage">
         <NormalText className="FormBottomMessage" content={'Já possui uma conta?'} />

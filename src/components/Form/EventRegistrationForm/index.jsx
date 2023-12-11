@@ -8,6 +8,7 @@ import { useEvent } from '../../../hooks/useEvent';
 import CustomButton from '../../Button/CustomButton';
 import DateInput from '../../Input/DateInput';
 import TextInput from '../../Input/TextInput';
+import CategorySelector from '../../Selector/CategorySelector';
 import NormalText from '../../Text/NormalText';
 import TextArea from '../../Text/TextArea';
 
@@ -54,12 +55,7 @@ function EventRegistrationForm({ onCloseFn }) {
               value={eventDetails.date}
               onChangeFn={handleDateChange}
             />
-            <TextInput
-              className="EventRegistrationFormInput"
-              placeHolder="Categoria"
-              value={eventDetails.category}
-              onChangeFn={handleCategoryChange}
-            />
+            <CategorySelector placeholder="Categoria" onSelectFn={handleCategoryChange} />
           </div>
           <div className="EventRegistrationFormGroupInColumn" style={{ margin: '15px' }}>
             <NormalText content="Descreva o evento" style={{ fontSize: '14px', color: 'var(--clr-gray-700)' }} />
