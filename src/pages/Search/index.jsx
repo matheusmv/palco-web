@@ -38,7 +38,7 @@ function Search() {
 
   const [search] = useSearchParams();
   const { events, page, handleCurrentPageChange, handleFilterChange } = useEventPage({
-    itemsPerPage: 10,
+    itemsPerPage: 24,
     defaultFilters: buildSearchFiltersFromUrlParamsEntries(search.entries()),
   });
 
