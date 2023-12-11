@@ -4,6 +4,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import EditIcon from '@mui/icons-material/Edit';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import { useEvent } from '../../../hooks/useEvent';
@@ -12,7 +13,9 @@ import CustomButton from '../../Button/CustomButton';
 import DefaultSpinner from '../../Spinner/DefaultSpinner';
 import NormalText from '../../Text/NormalText';
 
-function EventCardDetails({ eventId, onCloseFn }) {
+function EventCardDetails({ className, eventId, onCloseFn }) {
+  const { admin } = useSelector((state) => state.userReducer);
+
   const [loading, setLoading] = useState(true);
 
   const { eventDetails, fetchById } = useEvent();
@@ -34,7 +37,7 @@ function EventCardDetails({ eventId, onCloseFn }) {
   }
 
   return (
-    <div className="EventCardDetailsContainer">
+    <div className={'EventCardDetailsContainer' + `${className ? ` ${className}` : ''}`} key={eventId}>
       <div className="EventCardDetailsHeaderContainer">
         <div className="EventCardDetailsHeaderLeftSection">
           <NormalText className="EventCardDetailsCategoryInfo" content={eventDetails.category.toUpperCase()} />
@@ -54,13 +57,15 @@ function EventCardDetails({ eventId, onCloseFn }) {
           <h3 className="EventCardDetailsLocation">{`${eventDetails.city} - ${eventDetails.state}`}</h3>
           <NormalText className="EventCardDetailsDescription" content={eventDetails.description} />
           <div className="EventCardDetailsBodyFooter">
-            <div className="EventCardDetailsBodyFooterLeftSection">
-              <CustomButton
-                className="EventCardDetailsEditButton"
-                text={<EditIcon fontSize="small" />}
-                style={{ width: '100%', heigth: '100%', padding: '20px' }}
-              />
-            </div>
+            {admin && (
+              <div className="EventCardDetailsBodyFooterLeftSection">
+                <CustomButton
+                  className="EventCardDetailsEditButton"
+                  text={<EditIcon fontSize="small" />}
+                  style={{ width: '100%', heigth: '100%', padding: '20px' }}
+                />
+              </div>
+            )}
             <div className="EventCardDetailsBodyFooterRightSection">
               <NormalText
                 className="EventCardDetailsLocationMeta"
@@ -82,6 +87,7 @@ function EventCardDetails({ eventId, onCloseFn }) {
 }
 
 EventCardDetails.propTypes = {
+  className: PropTypes.string,
   eventId: PropTypes.string,
   onCloseFn: PropTypes.func,
 };

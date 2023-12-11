@@ -2,6 +2,7 @@
   position: absolute;
 
   top: calc(100vh / 5);
+  left: calc(100vw / 2.5);
 
   min-width: 340px;
   max-width: 730px;
@@ -231,4 +232,10 @@
 
 .EventCardDetailsLocationMeta {
   color: var(--clr-blue) !important;
+}
+
+@media screen and (max-width: 640px) {
+  .EventCardDetailsContainer {
+    left: calc(100vw - 355px);
+  }
 }

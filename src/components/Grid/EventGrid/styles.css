@@ -1,0 +1,151 @@
+.GridContainer {
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+
+  gap: 1.5rem;
+  padding: 10px;
+
+  align-items: first baseline;
+  justify-content: center;
+
+  overflow-y: scroll;
+}
+
+.GridCardContainer {
+  width: 100%;
+  max-width: 250px;
+  height: 200px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.32);
+
+  transition: all .3s ease-in;
+
+  background-color: var(--clr-white);
+
+  cursor: pointer;
+}
+
+.GridCardHeaderContainer {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: var(--clr-purple-dark);
+}
+
+.GridCardHeaderLeftSection,
+.GridCardHeaderRightSection {
+  width: 100%;
+  height: fit-content;
+
+  display: flex;
+}
+
+.GridCardHeaderLeftSection {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.GridCardCategoryInfo {
+  width: fit-content;
+  height: 30px;
+
+  padding: 10px 20px;
+
+  color: var(--clr-white);
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  background-color: var(--clr-purple-medium);
+}
+
+.GridCardHeaderRightSection {
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.GridCardDateInfoContainer {
+  width: 100%;
+  height: 20px;
+
+  margin: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  color: var(--clr-white);
+}
+
+.Day,
+.Month,
+.Year {
+  color: var(--clr-white);
+}
+
+.Day {
+  font-size: 13px;
+}
+
+.Month {
+  font-size: 13px;
+}
+
+.Year {
+  font-size: 13px;
+}
+
+.GridCardBodyContainer {
+  width: 100%;
+  height: 100%;
+
+  padding: 10px;
+}
+
+.GridCardBody {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.GridCardTitle {
+  font-size: 16px;
+}
+
+.GridCardLocation {
+  display: flex;
+  justify-content: flex-end;
+
+  font-size: 14px;
+
+  color: var(--clr-purple-medium);
+}
+
+@media screen and (max-width: 768px) {
+  .GridContainer {
+    height: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .GridContainer {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
