@@ -2,6 +2,7 @@ import './styles.css';
 
 import CloseIcon from '@mui/icons-material/Close';
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 
 import { useEvent } from '../../../hooks/useEvent';
@@ -11,14 +12,16 @@ import TextInput from '../../Input/TextInput';
 import CategorySelector from '../../Selector/CategorySelector';
 import NormalText from '../../Text/NormalText';
 import TextArea from '../../Text/TextArea';
+import { tryToGetAddressDetailsByZipCode } from './utils';
 
 function EventRegistrationForm({ onCloseFn }) {
   const {
     eventDetails,
+    setEventDetails,
+    setFieldOnState,
     handleNameChange,
     handleDateChange,
     handleDescriptionChange,
-    handleCategoryChange,
     handleCepChange,
     handleStateChange,
     handleCityChange,
@@ -35,6 +38,18 @@ function EventRegistrationForm({ onCloseFn }) {
       onCloseFn?.();
     });
   };
+
+  useEffect(() => {
+    tryToGetAddressDetailsByZipCode(
+      eventDetails.cep,
+      ({ state, city, neighborhood, street }) => {
+        setEventDetails((eventDetails) => ({ ...eventDetails, city, state, street, neighborhood }));
+      },
+      () => {
+        toast.error('CEP não encontrado');
+      },
+    );
+  }, [eventDetails.cep, setEventDetails]);
 
   return (
     <div className="EventRegistrationFormContainer">
@@ -55,7 +70,10 @@ function EventRegistrationForm({ onCloseFn }) {
               value={eventDetails.date}
               onChangeFn={handleDateChange}
             />
-            <CategorySelector placeholder="Categoria" onSelectFn={handleCategoryChange} />
+            <CategorySelector
+              placeholder="Categoria"
+              onSelectFn={(category) => setFieldOnState('category', category)}
+            />
           </div>
           <div className="EventRegistrationFormGroupInColumn" style={{ margin: '15px' }}>
             <NormalText content="Descreva o evento" style={{ fontSize: '14px', color: 'var(--clr-gray-700)' }} />
@@ -110,6 +128,7 @@ function EventRegistrationForm({ onCloseFn }) {
               onChangeFn={handleCityChange}
             />
             <TextInput
+              style={{ width: '80px' }}
               className="EventRegistrationFormInput LocationInput"
               placeHolder="Estado"
               value={eventDetails.state}
